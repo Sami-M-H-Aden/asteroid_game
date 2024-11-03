@@ -5,6 +5,9 @@ import pygame
 pygame.init()
 from constants import *
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+dt=0
+clock=pygame.time.Clock()
+
 
 def main():
 
@@ -20,6 +23,8 @@ def main():
         #Below is the code that allows the screen to be drawn
         pygame.Surface.fill(screen,"black")
         pygame.display.flip()
+        clock.tick(60)
+        dt=clock.tick(60)/1000
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
 if __name__ == "__main__":
