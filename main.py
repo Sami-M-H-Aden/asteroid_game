@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 pygame.init()
+from player import *
 from constants import *
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 dt=0
@@ -14,6 +15,7 @@ def main():
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
+    player=Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
 
     while True:
         #Allows for the close button to work
@@ -22,6 +24,7 @@ def main():
                 return
         #Below is the code that allows the screen to be drawn
         pygame.Surface.fill(screen,"black")
+        player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
         dt=clock.tick(60)/1000
