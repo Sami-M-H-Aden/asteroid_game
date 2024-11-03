@@ -24,10 +24,14 @@ def main():
                 return
         #Below is the code that allows the screen to be drawn
         pygame.Surface.fill(screen,"black")
+        #draws the player character
         player.draw(screen)
         pygame.display.flip()
+        #making computer speed independednt of refresh speed.
         clock.tick(60)
         dt=clock.tick(60)/1000
+        #allows for rotation and movement
+        player.update(dt)
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
 if __name__ == "__main__":
