@@ -15,6 +15,9 @@ def main():
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
+    updatable=pygame.sprite.Group()
+    drawable=pygame.sprite.Group()
+    Player.containers=(updatable,drawable)
     player=Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
 
     while True:
@@ -30,7 +33,7 @@ def main():
         #making computer speed independednt of refresh speed.
         clock.tick(60)
         dt=clock.tick(60)/1000
-        #allows for rotation and movement
+        #allows for rotation and movement, will be using groups now
         player.update(dt)
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
