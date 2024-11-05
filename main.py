@@ -43,6 +43,10 @@ def main():
         #allows for rotation and movement, will be using groups now
         for object in updatable:
             object.update(dt)
+        for object in asteroids:
+            if object.collision(player):
+                print("Game Over!")
+                return
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
 if __name__ == "__main__":
