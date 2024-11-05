@@ -27,14 +27,16 @@ def main():
                 return
         #Below is the code that allows the screen to be drawn
         pygame.Surface.fill(screen,"black")
-        #draws the player character
-        player.draw(screen)
-        pygame.display.flip()
-        #making computer speed independednt of refresh speed.
+        #making computer speed independent of refresh speed.
         clock.tick(60)
         dt=clock.tick(60)/1000
+        #draws the player character, using groups to do so
+        for object in drawable:
+            object.draw(screen)
+        pygame.display.flip()
         #allows for rotation and movement, will be using groups now
-        player.update(dt)
+        for object in updatable:
+            object.update(dt)
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
 if __name__ == "__main__":
