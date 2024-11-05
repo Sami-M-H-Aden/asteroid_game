@@ -5,6 +5,7 @@ import pygame
 pygame.init()
 from player import *
 from constants import *
+from asteroid import *
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 dt=0
 clock=pygame.time.Clock()
@@ -17,6 +18,8 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     updatable=pygame.sprite.Group()
     drawable=pygame.sprite.Group()
+    asteroids=pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable, drawable)
     Player.containers=(updatable,drawable)
     player=Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
 
