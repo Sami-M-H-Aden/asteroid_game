@@ -1,5 +1,5 @@
 from circleshape import *
-from constants import PLAYER_RADIUS,PLAYER_TURN_SPEED,PLAYER_SPEED,SHOT_RADIUS,PLAYER_SHOOT_SPEED
+from constants import *
 from Shot import Shot
 
 class Player(CircleShape):
@@ -32,8 +32,12 @@ class Player(CircleShape):
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
-        if keys[pygame.K_SPACE]:
+        #limits the shooting rate
+        if  not (self.player_timer > 0) and keys[pygame.K_SPACE]:
             self.shoot()
+            self.player_timer = PLAYER_SHOOT_COOLDOWN
+        self.player_timer-=dt
+
         
     def move(self,dt):
         #allows us to move forward and backwards
