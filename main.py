@@ -52,7 +52,7 @@ def main():
                 return
             for shot in shots:
                 if asteroid.collision(shot):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
 
 #making sure the code only runs when "python3 main.py" is run, not any modules which may have the main function imported into them
